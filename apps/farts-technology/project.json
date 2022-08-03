@@ -1,0 +1,52 @@
+{
+  "root": "apps/farts-technology",
+  "sourceRoot": "apps/farts-technology/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/farts-technology",
+        "main": "apps/farts-technology/src/main.ts",
+        "tsConfig": "apps/farts-technology/tsconfig.app.json",
+        "assets": ["apps/farts-technology/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/farts-technology/src/environments/environment.ts",
+              "with": "apps/farts-technology/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "farts-technology:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/farts-technology/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/farts-technology"],
+      "options": {
+        "jestConfig": "apps/farts-technology/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
