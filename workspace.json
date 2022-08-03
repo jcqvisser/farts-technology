@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "farts-technology": "apps/farts-technology"
+    "farts-technology": "apps/farts-technology",
+    "farts-technology-front-end": "apps/farts-technology-front-end",
+    "farts-technology-front-end-e2e": "apps/farts-technology-front-end-e2e"
   }
 }
